@@ -46,7 +46,7 @@
                 var todo=l[i];
                 (function(todo){
                     $("#list").append(
-                        $("<li>").attr({"id":todo.id}).html("No."+(i+1)+": "+todo.name).append(
+                        $("<li>").html("No."+(i+1)+": "+todo.name).append(
                             $("<button>").html("X").click(function(){
                                 remove_todo(todo.id);
                                 render();
