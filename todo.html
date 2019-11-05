@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Todo</title>
+    </head>
+    <body>
+        <h1>Todo List Demo</h1>
+        <input id="todo_name"></input>
+        <button id="new_todo">Add</button>
+        <ul id="list"></ul>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        var cnt=0;//to assign unique id for list items
+
+        $("#new_todo").click(function(){
+            (function(cnt){
+                var todo_name=$("#todo_name").val();
+
+                var todo_id="todo"+cnt;
+
+                $("#list").append(
+                    $("<li>").attr({"id":todo_id}).html(todo_name).append(
+                        $("<button>").html("X").click(function(){
+                            $("#"+todo_id).remove();
+                        })
+                    )
+                )
+            })(cnt)
+
+            cnt++;
+
+            $("#todo_name").val("");
+        })
+    </script>
+</html>
